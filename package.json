@@ -1,0 +1,22 @@
+{
+  "name": "vue-cli-plugin-tp-template",
+  "version": "0.1.0",
+  "description": "vue template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamzhaoqing/vue-cli-plugin-tp-template.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "zhaoqing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template/issues"
+  },
+  "homepage": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template#readme"
+}
