@@ -2,12 +2,14 @@
 
 Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件。所预设的插件和配置有：Vue3、Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
 
-模板存放在 `/generator/template`，创建项目时自动生成，空文件和文件夹会被忽略，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)
+模板存放在 `/generator/template`，创建项目时自动生成，空文件和文件夹会被忽略，模板需要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
 
 ## 使用
 
 ```bash
 $ vue create --preset tp-template project-name
+$ cd project-name
+$ npm run serve
 ```
 
 ## 样式相关
@@ -16,11 +18,11 @@ $ vue create --preset tp-template project-name
 
 项目采用 less 作为 CSS 预处理器，`src/assets/styles/` 目录下放了一个 `resources.less` 文件，用于存放一些全局的变量或 mixin 等。此文件[自动导入](https://cli.vuejs.org/zh/guide/css.html#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AF%BC%E5%85%A5)到每个单文件组件和 less 文件里。
 
-在 vue.config.js 中已配置 `style-resources-loader`，无需再使用 `vue add style-resources-loader` 安装[vue-cli-plugin-style-resources-loader](https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader)了。
+在 vue.config.js 中已配置 `style-resources-loader`，无需再使用 `vue add style-resources-loader` 安装 [vue-cli-plugin-style-resources-loader](https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader) 了。
 
 ## 字体文件
 
-iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/index.html` 引入对应的 CSS/js 文件。建议在 `public/iconfont/info.md` 文件中记录图标库的地址和账号，方便后续维护。
+iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/index.html` 引入对应的 CSS / js 文件。建议在 `public/iconfont/info.md` 文件中记录图标库的地址和登录账号，方便后续维护。
 
 ```
 .
@@ -60,6 +62,6 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## babel
 
-使用了 transform-remove-debugger 和 transform-remove-console，生产环境代码删除 `console` 和 `debugger`。
+使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `console` 和 `debugger`。
 
 ## 总结
