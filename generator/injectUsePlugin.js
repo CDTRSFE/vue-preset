@@ -12,7 +12,7 @@ module.exports = (file, api) => {
         }
     });
 
-    const plugins = ['store', 'router', 'axios', 'directives', 'filters', 'components'];
+    const plugins = ['axios', 'directives', 'filters', 'components'];
     plugins.forEach(plugin => {
         appRoots.replaceWith(({ node: createAppCall }) => {
             return j.callExpression(j.memberExpression(createAppCall, j.identifier('use')), [j.identifier(plugin)]);
