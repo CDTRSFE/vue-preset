@@ -3,16 +3,14 @@
  * @Date: 2021-01-06 11:46:31
  */
 
-// import ICountUp from 'vue-countup-v2';
+const files = require.context('./common', true, /Index.vue$/);
+const requireAll = context => context.keys().map(context);
+const components = requireAll(files);
 
-// const files = require.context('./common', true, /Index.vue$/);
-// const requireAll = context => context.keys().map(context);
-// const components = [requireAll(files), ICountUp]
-
-// export default {
-//     install(app) {
-//         components.forEach(({ default: item }) => {
-//             app.component(item.name, item);
-//         });
-//     }
-// };
+export default {
+    install(app) {
+        components.forEach(({ default: item }) => {
+            app.component(item.name, item);
+        });
+    }
+};
