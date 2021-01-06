@@ -3,7 +3,7 @@ module.exports = (api, options) => {
   api.render('./template');
 
     // 引入样式文件
-    // api.injectImports(api.entryFile, `import '../public/styles/reset.css'`);
+    api.injectImports(api.entryFile, `import '../public/styles/public.less'`);
     // api.injectImports(api.entryFile, `import '../public/styles/common.css'`);
     // api.injectImports(api.entryFile, `import '@/assets/styles/resources.less'`);
 

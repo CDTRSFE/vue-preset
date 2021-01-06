@@ -67,3 +67,6 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `console` 和 `debugger`。
 
 ## 总结
+
+[vue项目规范文档]: https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220
+

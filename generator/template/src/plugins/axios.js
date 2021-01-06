@@ -15,24 +15,24 @@ const config = {
 const _axios = axios.create(config);
 
 // loading 动画
-const loading = {
-    num: 0,
-    open() {
-        if (this.num === 0) {
-            // this.instance = Loading.service({
-            //   text: '玩命加载中...',
-            //   background: 'rgba(255, 255, 255, 0.6)'
-            // });
-        }
-        this.num++;
-    },
-    close() {
-        this.num--;
-        if (this.num === 0) {
-            // this.instance.close();
-        }
-    }
-};
+// const loading = {
+//     num: 0,
+//     open() {
+//         if (this.num === 0) {
+//             this.instance = Loading.service({
+//                 text: '玩命加载中...',
+//                 background: 'rgba(255, 255, 255, 0.6)'
+//             });
+//         }
+//         this.num++;
+//     },
+//     close() {
+//         this.num--;
+//         if (this.num === 0) {
+//             this.instance.close();
+//         }
+//     }
+// };
 
 _axios.interceptors.request.use(
     function (config) {
@@ -40,7 +40,7 @@ _axios.interceptors.request.use(
         if (config.method === 'post') {
             config.data = qs.stringify(config.data); // post请求格式化数据
         }
-        loading.open();
+        // loading.open();
         return config;
     },
     function (error) {
@@ -53,11 +53,11 @@ _axios.interceptors.request.use(
 _axios.interceptors.response.use(
     function (response) {
         // Do something with response data
-        loading.close();
+        // loading.close();
         return response.data;
     },
     function (error) {
-        loading.close();
+        // loading.close();
         if (error.response) {
             switch (error.response.status) {
                 case 400:

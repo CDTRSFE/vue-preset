@@ -1,7 +1,3 @@
-/*
- * @Description: 全局过滤器
- * @Date: 2021-01-06 11:46:31
- */
 const filters = {
     //
 };
