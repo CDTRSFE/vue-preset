@@ -1,32 +1,23 @@
 module.exports = (file, api) => {
-  const j = api.jscodeshift
-  const root = j(file.source)
+    const j = api.jscodeshift;
+    const root = j(file.source);
 
-  const appRoots = root.find(j.CallExpression, (node) => {
-    if (j.Identifier.check(node.callee) && node.callee.name === 'createApp') {
-      return true
-    }
+    const appRoots = root.find(j.CallExpression, node => {
+        if (j.Identifier.check(node.callee) && node.callee.name === 'createApp') {
+            return true;
+        }
 
-    if (
-      j.MemberExpression.check(node.callee) &&
-      j.Identifier.check(node.callee.object) &&
-      node.callee.object.name === 'Vue' &&
-      j.Identifier.check(node.callee.property) &&
-      node.callee.property.name === 'createApp'
-    ) {
-      return true
-    }
-  })
+        if (j.MemberExpression.check(node.callee) && j.Identifier.check(node.callee.object) && node.callee.object.name === 'Vue' && j.Identifier.check(node.callee.property) && node.callee.property.name === 'createApp') {
+            return true;
+        }
+    });
 
-  const plugins = ['store', 'router', 'axios', 'directives', 'filters', 'components']
-  plugins.forEach(plugin => {
-    appRoots.replaceWith(({ node: createAppCall }) => {
-      return j.callExpression(
-        j.memberExpression(createAppCall, j.identifier('use')),
-        [j.identifier(plugin)]
-      )
-    })
-  })
+    const plugins = ['store', 'router', 'axios', 'directives', 'filters', 'components'];
+    plugins.forEach(plugin => {
+        appRoots.replaceWith(({ node: createAppCall }) => {
+            return j.callExpression(j.memberExpression(createAppCall, j.identifier('use')), [j.identifier(plugin)]);
+        });
+    });
 
-  return root.toSource()
-}
+    return root.toSource();
+};

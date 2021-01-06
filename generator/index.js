@@ -1,37 +1,37 @@
-module.exports = (api) => {
-  // 创建模板
-  api.render('./template');
+\module.exports = api => {
+    // 创建模板
+    api.render('./template');
 
-  // 引入样式文件
-  // api.injectImports(api.entryFile, `import '../public/styles/reset.css'`);
-  // api.injectImports(api.entryFile, `import '../public/styles/common.css'`);
-  // api.injectImports(api.entryFile, `import '@/assets/styles/resources.less'`);
+    // 引入样式文件
+    // api.injectImports(api.entryFile, `import '../public/styles/reset.css'`);
+    // api.injectImports(api.entryFile, `import '../public/styles/common.css'`);
+    // api.injectImports(api.entryFile, `import '@/assets/styles/resources.less'`);
 
-  // 引入 plugins
-  api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
-  api.injectImports(api.entryFile, `import directives from '@/plugins/directives'`);
-  api.injectImports(api.entryFile, `import filters from '@/plugins/filters'`);
+    // 引入 plugins
+    api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
+    api.injectImports(api.entryFile, `import directives from '@/plugins/directives'`);
+    api.injectImports(api.entryFile, `import filters from '@/plugins/filters'`);
 
-  // 引入全局组件
-  api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
+    // 引入全局组件
+    api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
 
-  // 注入 plugins
-  api.transformScript(api.entryFile, require('./injectUsePlugin'));
+    // 注入 plugins
+    api.transformScript(api.entryFile, require('./injectUsePlugin'));
 
-  // 添加额外的依赖
-  api.extendPackage({
-    dependencies: {
-      'qs': '^6.7.0',
-      'axios': '0.18.0'
-    },
-    devDependencies: {
-      'style-resources-loader': '^1.3.2',
-      'stylelint': '^13.7.2',
-      'stylelint-config-standard': '^20.0.0',
-      "stylelint-webpack-plugin": "^2.1.1",
-      "webpack-bundle-analyzer": "^4.3.0",
-      "babel-plugin-transform-remove-console": "^6.9.4",
-      "babel-plugin-transform-remove-debugger": "^6.9.4",
-    }
-  })
-}
+    // 添加额外的依赖
+    api.extendPackage({
+        dependencies: {
+            qs: '^6.7.0',
+            axios: '0.18.0'
+        },
+        devDependencies: {
+            'style-resources-loader': '^1.3.2',
+            stylelint: '^13.7.2',
+            'stylelint-config-standard': '^20.0.0',
+            'stylelint-webpack-plugin': '^2.1.1',
+            'webpack-bundle-analyzer': '^4.3.0',
+            'babel-plugin-transform-remove-console': '^6.9.4',
+            'babel-plugin-transform-remove-debugger': '^6.9.4'
+        }
+    });
+};
