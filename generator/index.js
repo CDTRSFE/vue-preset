@@ -1,4 +1,4 @@
-\module.exports = api => {
+module.exports = api => {
     // 创建模板
     api.render('./template');
 
