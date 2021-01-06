@@ -1,7 +1,3 @@
-/*
- * @Description: 全局指令
- * @Date: 2021-01-06 11:46:31
- */
 const directives = {
     //
 };
