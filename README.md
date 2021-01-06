@@ -12,6 +12,8 @@ $ cd project-name
 $ npm run serve
 ```
 
+创建过程中会有选择项目类型的提示，如果选择 `data visualization project` (数据可视化大屏项目)，会额外安装 `echarts` `animate.css`。
+
 ## 样式相关
 
 `public/styles` 目录下放了两个 CSS 文件，一个是样式重置，一个是高频率使用的一些 class，在 `public/index.html` 文件中引入。
