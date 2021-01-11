@@ -107,7 +107,7 @@ _axios.interceptors.response.use(
     }
 );
 
-Plugin.install = function (app, options) {
+Plugin.install = function (app) {
     window.axios = _axios;
     Object.defineProperties(app.config.globalProperties, {
         axios: {

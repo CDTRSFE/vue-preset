@@ -20,8 +20,8 @@ module.exports = {
     rules: {
         'no-console': 1,
         'no-debugger': 1,
-        // 缩进使用 4 个空格
-        'indent': 2,
+        // 缩进使用 4 个空格 默认就是4个
+        'indent': [2, 4, { 'SwitchCase': 1 }],
         // 强制 getter 和 setter 在对象中成对出现
         'accessor-pairs': 2,
         // 强制箭头函数的箭头前后使用一致的空格
@@ -32,12 +32,16 @@ module.exports = {
         'brace-style': 2,
         // 使用驼峰命名约定
         'camelcase': 2,
+        // 禁止函数圆括号之前有空格
+        'space-before-function-paren': [2, 'never'],
         // 当最后一个元素或属性与闭括号 ] 或 } 在不同的行时，要求使用拖尾逗号；当在同一行时，禁止使用拖尾逗号
-        'comma-dangle': [2, 'always-multiline'],
+        'comma-dangle': 2,
         // 禁止在逗号前使用空格，要求在逗号后使用空格
         'comma-spacing': 2,
         // 要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
         'comma-style': 2,
+        // 禁止使用object构造函数
+        'no-new-object': 2,
         // 当块中有多条语句时使用大括号
         'curly': [2, 'multi-line'],
         // 要求点操作符和属性放在同一行
@@ -48,8 +52,8 @@ module.exports = {
         'no-multiple-empty-lines': [2, { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 }],
         // 要求使用 === 和 !==
         'eqeqeq': 2,
-        // generator 函数中 * 号左边有空格右边不允许有空格
-        'generator-star-spacing': 2,
+        // generator 函数中 * 号左边有空格右边不允许有空格? es6建议星号后面有空格，前面没有
+        'generator-star-spacing': [2, 'after'],
         // 强制回调错误处理（参数名满足 /^(err|error)$/ 时有效）
         'handle-callback-err': [2, '^(err|error)$'],
         // 强制所有不包含单引号的 JSX 属性值使用单引号
@@ -94,7 +98,7 @@ module.exports = {
         'no-new-wrappers': 2,
         // 禁止在字符串字面量中使用八进制转义序列
         'no-octal-escape': 2,
-        // 禁止对 __dirname 和 __filename 进行字符串连接 (node.js)
+        // 禁止对 __dirname 和 __filename 进行字符串连接 (node.js) v7.0.0被废弃 eslint-plugin-node（node/no-path-concat）
         'no-path-concat': 2,
         // 不允许 new require (node.js)
         'no-new-require': 2,
@@ -106,11 +110,11 @@ module.exports = {
         'no-self-compare': 2,
         // 不允许使用逗号操作符
         'no-sequences': 2,
-        // 禁止在函数标识符和其调用之间有空格
-        'no-spaced-func': 2,
-        // 限制可以被抛出的异常
+        // 禁止在函数标识符和其调用之间有空格 v3.3.0被废弃 func-call-spacing
+        'func-call-spacing': 2,
+        // 限制可以被抛出的异常Error
         'no-throw-literal': 2,
-        // 禁用行尾空格
+        // 禁用行尾空格包括注释
         'no-trailing-spaces': 2,
         // 禁止将变量初始化为 undefined
         'no-undef-init': 2,
@@ -120,7 +124,7 @@ module.exports = {
         'no-unneeded-ternary': [2, { 'defaultAssignment': false }],
         // 禁用不必要的 .call() 和 .apply()
         'no-useless-call': 2,
-        // 禁止在对象中使用不必要的计算属性 
+        // 禁止在对象中使用不必要的计算属性
         'no-useless-computed-key': 2,
         // 禁用不必要的构造函数
         'no-useless-constructor': 2,
@@ -150,48 +154,44 @@ module.exports = {
         'spaced-comment': [2, 'always', { 'markers': ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!', ','] }],
         // 禁止模板字符串中的嵌入表达式周围空格的使用
         'template-curly-spacing': 2,
-        // 需要把立即执行的函数包裹起来
+        // 需要把立即执行的函数包裹起来(内部括号外部括号都可以)
         'wrap-iife': [2, 'any'],
-        // 强制在 yield* 表达式中 * 周围使用空格
-        'yield-star-spacing': [2, 'both'],
+        // 强制在 yield* 表达式中前面没空格后面有空格
+        'yield-star-spacing': 2,
         // 者禁止Yoda条件
         'yoda': 2,
         // 要求使用 const 声明那些声明后不再被修改的变量
         'prefer-const': 2,
         // 强制在花括号中使用一致的空格
         'object-curly-spacing': [2, 'always', { 'objectsInObjects': false }],
-        // 禁止在括号内使用空格
+        // 禁止在数组括号内使用空格
         'array-bracket-spacing': 2,
         // 使用严格模式
         'strict': 2,
         // 限制函数块中的语句的最大数量
         'max-statements': [2, { 'max': 20 }, { 'ignoreTopLevelFunctions': true }],
-
-        // Enforce the maximum number of attributes per line
-        'vue/max-attributes-per-line': ['error', {
-            'singleline': 12,
-            'multiline': {
-                'max': 1,
-                'allowFirstLine': false
-            }
+        // 下面为vue规则校验
+        // 每行最多的属性个数
+        'vue/max-attributes-per-line': [2, {
+            'singleline': 12
         }],
-        // Require a line break before and after the contents of a singleline element
+        // html元素可以保持单行
         'vue/singleline-html-element-content-newline': 0,
-        // Enforce self-closing style
+        // 标签自闭和
         'vue/html-self-closing': [2, {
             'html': {
-                'void': 'never',
+                'void': 'always',
                 'normal': 'never',
                 'component': 'never'
             },
             'svg': 'any',
             'math': 'any'
         }],
-        // enforce component definition names to pascal case
-        'vue/name-property-casing': 2,
-        // Allow use of v-html to prevent XSS attack
+        // 组件name属性值的格式（驼峰）
+        'vue/component-definition-name-casing': 2,
+        // 允许使用v-html
         'vue/no-v-html': 0,
-        // Enforce consistent indentation in <template>
-        'vue/html-indent': [2, 4, { baseIndent: 1 }],
+        // 定义vue中html缩进
+        'vue/html-indent': [2, 4]
     }
-}
+};
