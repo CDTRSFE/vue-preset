@@ -35,7 +35,7 @@ module.exports = {
         // 禁止函数圆括号之前有空格
         'space-before-function-paren': [2, 'never'],
         // 当最后一个元素或属性与闭括号 ] 或 } 在不同的行时，要求使用拖尾逗号；当在同一行时，禁止使用拖尾逗号
-        'comma-dangle': 2,
+        'comma-dangle': [2, 'always-multiline'],
         // 禁止在逗号前使用空格，要求在逗号后使用空格
         'comma-spacing': 2,
         // 要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
@@ -98,7 +98,7 @@ module.exports = {
         'no-new-wrappers': 2,
         // 禁止在字符串字面量中使用八进制转义序列
         'no-octal-escape': 2,
-        // 禁止对 __dirname 和 __filename 进行字符串连接 (node.js) v7.0.0被废弃 eslint-plugin-node（node/no-path-concat）
+        // 禁止对 __dirname 和 __filename 进行字符串连接 (node.js)(v7.0.0 使用 node/no-path-concat)
         'no-path-concat': 2,
         // 不允许 new require (node.js)
         'no-new-require': 2,
@@ -110,9 +110,9 @@ module.exports = {
         'no-self-compare': 2,
         // 不允许使用逗号操作符
         'no-sequences': 2,
-        // 禁止在函数标识符和其调用之间有空格 v3.3.0被废弃 func-call-spacing
+        // 禁止在函数标识符和其调用之间有空格
         'func-call-spacing': 2,
-        // 限制可以被抛出的异常Error
+        // 限制可以被抛出的异常(只能抛出 Error 对象)
         'no-throw-literal': 2,
         // 禁用行尾空格包括注释
         'no-trailing-spaces': 2,
@@ -158,7 +158,7 @@ module.exports = {
         'wrap-iife': [2, 'any'],
         // 强制在 yield* 表达式中前面没空格后面有空格
         'yield-star-spacing': 2,
-        // 者禁止Yoda条件
+        // 者禁止 Yoda 条件
         'yoda': 2,
         // 要求使用 const 声明那些声明后不再被修改的变量
         'prefer-const': 2,
@@ -170,12 +170,12 @@ module.exports = {
         'strict': 2,
         // 限制函数块中的语句的最大数量
         'max-statements': [2, { 'max': 20 }, { 'ignoreTopLevelFunctions': true }],
-        // 下面为vue规则校验
+
         // 每行最多的属性个数
         'vue/max-attributes-per-line': [2, {
             'singleline': 12
         }],
-        // html元素可以保持单行
+        // html 元素可以保持单行
         'vue/singleline-html-element-content-newline': 0,
         // 标签自闭和
         'vue/html-self-closing': [2, {
@@ -187,11 +187,11 @@ module.exports = {
             'svg': 'any',
             'math': 'any'
         }],
-        // 组件name属性值的格式（驼峰）
+        // 组件 name 属性值的格式（驼峰）
         'vue/component-definition-name-casing': 2,
-        // 允许使用v-html
+        // 允许使用 v-html
         'vue/no-v-html': 0,
-        // 定义vue中html缩进
+        // 定义 vue 中 html 缩进
         'vue/html-indent': [2, 4]
     }
 };
