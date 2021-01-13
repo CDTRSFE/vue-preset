@@ -4,8 +4,6 @@ module.exports = (api, options) => {
 
     // 引入样式文件
     api.injectImports(api.entryFile, `import '@/assets/styles/public.less'`);
-    // api.injectImports(api.entryFile, `import '../public/styles/common.css'`);
-    // api.injectImports(api.entryFile, `import '@/assets/styles/resources.less'`);
 
     // 引入 plugins
     api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
@@ -34,6 +32,7 @@ module.exports = (api, options) => {
     api.extendPackage({
         dependencies,
         devDependencies: {
+            'eslint-config-tpconfig': '^0.1.0',
             'style-resources-loader': '^1.3.2',
             'stylelint': '^13.7.2',
             'stylelint-config-standard': '^20.0.0',

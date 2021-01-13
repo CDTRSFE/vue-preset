@@ -1,8 +1,8 @@
 # vue-cli-plugin-tp-template
 
-Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件。所预设的插件和配置有：Vue3、Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
+Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件，所预设的插件和配置有：Vue3、Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
 
-模板存放在 `/generator/template`，创建项目时自动生成，空文件和文件夹会被忽略，模板需要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
+模板存放在 `/generator/template`，创建项目时自动生成，如果要调整模板需注意：空文件和文件夹会被忽略，模板要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
 
 ## 使用
 
@@ -12,11 +12,13 @@ $ cd project-name
 $ npm run serve
 ```
 
-创建过程中会有选择项目类型的提示，如果选择 `data visualization project` (数据可视化大屏项目)，会额外安装 `echarts` `animate.css`。
+创建过程中会有选择项目类型的提示，一般直接选择 `default` 即可，如果选择 `data visualization project` (数据可视化大屏项目)，会额外安装 `echarts` `animate.css`。
 
 ## 样式相关
 
-`public/styles` 目录下放了两个 CSS 文件，一个是样式重置，一个是高频率使用的一些 class，在 `public/index.html` 文件中引入。
+~~`public/styles` 目录下放了两个 CSS 文件，一个是样式重置，一个是高频率使用的一些 class，在 `public/index.html` 文件中引入。~~
+
+样式重置和高频率使用的一些样式，这两部分公共样式文件从模板中提取出来，放在项目里单独维护。如果项目里需要用到全局样式，都放在 `src/assets/styles/public.less` 中，此文件在 `main.js` 引入。
 
 项目采用 less 作为 CSS 预处理器，`src/assets/styles/` 目录下放了一个 `resources.less` 文件，用于存放一些全局的变量或 mixin 等。此文件[自动导入](https://cli.vuejs.org/zh/guide/css.html#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AF%BC%E5%85%A5)到每个单文件组件和 less 文件里。
 
@@ -58,6 +60,8 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## ESLint
 
+所有自定义规则都放在了 [eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig) 里单独维护，创建项目后自动生成的 `.eslintrc.js` 文件里不再有 `rules`。
+
 ## style-lint
 
 ## 版本日志
@@ -68,5 +72,4 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## 总结
 
-[vue项目规范文档]: https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220
-
+vue项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
