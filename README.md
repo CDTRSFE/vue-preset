@@ -18,9 +18,9 @@ $ npm run serve
 
 ~~`public/styles` 目录下放了两个 CSS 文件，一个是样式重置，一个是高频率使用的一些 class，在 `public/index.html` 文件中引入。~~
 
-样式重置和高频率使用的一些样式，这两部分公共样式文件从模板中提取出来，放在项目里单独维护。如果项目里需要用到全局样式，都放在 `src/assets/styles/public.less` 中，此文件在 `main.js` 引入。
+样式重置和高频率使用的 class，这两部分公共样式文件从模板中提取出来，放在 [tp-common.css](https://github.com/CDTRSFE/tp-common.css) 里单独维护。如果项目里需要用到全局样式，都放在 `src/assets/styles/public.less` 中，此文件在 `main.js` 引入。
 
-项目采用 less 作为 CSS 预处理器，`src/assets/styles/` 目录下放了一个 `resources.less` 文件，用于存放一些全局的变量或 mixin 等。此文件[自动导入](https://cli.vuejs.org/zh/guide/css.html#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AF%BC%E5%85%A5)到每个单文件组件和 less 文件里。
+项目采用 Less 作为 CSS 预处理器，`src/assets/styles/` 目录下放了一个 `resources.less` 文件，用于存放一些全局的变量或 mixin 等。此文件[自动导入](https://cli.vuejs.org/zh/guide/css.html#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AF%BC%E5%85%A5)到每个单文件组件和 Less 文件里。
 
 在 vue.config.js 中已配置 `style-resources-loader`，无需再使用 `vue add style-resources-loader` 安装 [vue-cli-plugin-style-resources-loader](https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader) 了。
 
@@ -68,8 +68,8 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## babel
 
-使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `console` 和 `debugger`。
+使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `debugger` 和 `console`。
 
 ## 总结
 
-vue项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
+Vue 项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
