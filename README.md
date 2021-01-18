@@ -41,14 +41,14 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 ```html
 <!-- index.html -->
 <head>
-    <link rel="stylesheet" href="<%= BASE_URL %>iconfont/f.css" />
-    <link rel="stylesheet" href="<%= BASE_URL %>font/f.css" />
+    <link rel="stylesheet" href="<%= BASE_URL %>iconfont/font.css" />
+    <link rel="stylesheet" href="<%= BASE_URL %>font/font.css" />
 </head>
 ```
 
 ## 组件
 
-公用组件放在 `src/components/` 下，`common/` 目录存放全局公用组件，为了方便自动全局注册，以及考虑到复杂组件需要拆分成多个文件的情况，每个全局组件都放在单独的文件夹里，并至少包含一个 `index.vue` 作为入口。其他公用组件放在 `normal/` 里，使用时引入。
+公用组件放在 `src/components/` 下，`common/` 目录存放全局公用组件，为了方便自动全局注册，以及考虑到复杂组件需要拆分成多个文件的情况，每个全局组件都放在单独的文件夹里，并至少包含一个 `Index.vue` 作为入口。其他公用组件放在 `normal/` 里，使用时引入。
 
 ## 指令/过滤器
 
@@ -60,7 +60,7 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## ESLint
 
-所有自定义规则都放在了 [eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig) 里单独维护，创建项目后自动生成的 `.eslintrc.js` 文件里不再有 `rules`。
+所有自定义规则都放在了 [eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig) 里单独维护，创建项目后自动生成的 `.eslintrc.js` 文件里不再有 `rules`。在编辑器中，建议安装 Eslint 插件。
 
 ## style-lint
 
@@ -70,6 +70,6 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `debugger` 和 `console`。
 
-## 总结
+## 相关链接
 
 Vue 项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
