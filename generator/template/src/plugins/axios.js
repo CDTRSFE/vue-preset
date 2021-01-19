@@ -1,3 +1,6 @@
+<%_ if (v2) { _%>
+import Vue from 'vue';
+<%_ } _%>
 import axios from 'axios';
 import qs from 'qs';
 // import Loading from 'element-ui';
@@ -107,9 +110,14 @@ _axios.interceptors.response.use(
     }
 );
 
-Plugin.install = function (app) {
+Plugin.install = function(app) {
     window.axios = _axios;
+    <%_ if (v2) { _%>
+    app.axios = _axios;
+    Object.defineProperties(app.prototype, {
+    <%_ } else { _%>
     Object.defineProperties(app.config.globalProperties, {
+    <%_ } _%>
         axios: {
             get() {
                 return _axios;
@@ -122,5 +130,9 @@ Plugin.install = function (app) {
         }
     });
 };
+
+<%_ if (v2) { _%>
+Vue.use(Plugin);
+<%_ } _%>
 
 export default Plugin;

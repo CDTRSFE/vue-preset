@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-tp-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "vue template",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template#readme",
   "devDependencies": {
+    "file-save": "^0.2.0",
+    "rimraf": "^3.0.2",
     "stylelint": "^13.8.0",
     "stylelint-webpack-plugin": "^2.1.1",
     "webpack-bundle-analyzer": "^4.3.0",

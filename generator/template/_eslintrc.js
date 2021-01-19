@@ -6,8 +6,13 @@ module.exports = {
         es6: true
     },
     extends: [
+        <%_ if (v2) { _%>
+        'plugin:vue/essential',
+        '@vue/standard'
+        <%_ } else { _%>
         'eslint:recommended',
         'plugin:vue/vue3-recommended'
+        <%_ } _%>
     ],
     parserOptions: {
         parser: 'babel-eslint',

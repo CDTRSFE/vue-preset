@@ -1,6 +1,7 @@
-module.exports = (api, options) => {
+module.exports = (api, options, rootOptions) => {
+    const v2 = rootOptions.vueVersion === '2';
     // 创建模板
-    api.render('./template');
+    api.render('./template', { v2 });
 
     // 引入样式文件
     api.injectImports(api.entryFile, `import '@/assets/styles/public.less'`);
@@ -16,7 +17,7 @@ module.exports = (api, options) => {
     api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
 
     // 注入 plugins
-    api.transformScript(api.entryFile, require('./injectUsePlugin'));
+    !v2 && api.transformScript(api.entryFile, require('./injectUsePlugin'));
 
     // 添加依赖
     let dependencies = {
