@@ -7,12 +7,22 @@ module.exports = (api, options, rootOptions) => {
     api.injectImports(api.entryFile, `import '@/assets/styles/public.less'`);
 
     // 引入 plugins
-    api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
-    api.injectImports(api.entryFile, `import directives from '@/plugins/directives'`);
-    api.injectImports(api.entryFile, `import filters from '@/plugins/filters'`);
+    if (v2) {
+        api.injectImports(api.entryFile, `import '@/plugins/axios'`);
+        api.injectImports(api.entryFile, `import '@/plugins/directives'`);
+        api.injectImports(api.entryFile, `import '@/plugins/filters'`);
+    } else {
+        api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
+        api.injectImports(api.entryFile, `import directives from '@/plugins/directives'`);
+        api.injectImports(api.entryFile, `import filters from '@/plugins/filters'`);
+    }
 
     // 引入全局组件
-    api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
+    if (v2) {
+        api.injectImports(api.entryFile, `import '@/components/index.js'`);
+    } else {
+        api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
+    }
 
     // 注入 plugins
     !v2 && api.transformScript(api.entryFile, require('./injectUsePlugin'));

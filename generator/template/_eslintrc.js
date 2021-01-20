@@ -8,12 +8,12 @@ module.exports = {
     extends: [
         <%_ if (v2) { _%>
         'plugin:vue/essential',
-        '@vue/standard'
+        '@vue/standard',
         <%_ } else { _%>
         'eslint:recommended',
         'plugin:vue/vue3-recommended',
-        'tpconfig'
         <%_ } _%>
+        'tpconfig'
     ],
     parserOptions: {
         parser: 'babel-eslint',

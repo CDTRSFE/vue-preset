@@ -4,7 +4,7 @@
   "description": "vue template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "bash ./publish.sh"
   },
   "repository": {
     "type": "git",
