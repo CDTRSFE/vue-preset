@@ -1,0 +1,26 @@
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import '@/plugins/axios';
+import filters from '@/plugins/filters';
+import directives from '@/plugins/directives';
+import components from '@/plugins/components';
+import 'element-ui/lib/theme-chalk/index.css';
+<%_ if (ui === 'element') { _%>
+import ElementUI from 'element-ui';
+Vue.use(ElementUI, {
+    size: 'small'
+});
+<%_ } _%>
+
+Vue.config.productionTip = false;
+
+Vue.use(filters);
+Vue.use(directives);
+Vue.use(components);
+new Vue({
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');

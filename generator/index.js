@@ -1,43 +1,26 @@
 module.exports = (api, options, rootOptions) => {
-    const v2 = rootOptions.vueVersion === '2';
+    // const v2 = options.vueVersion === 'v2';
+    const v2 = options.version === 'v2';
+
     // 创建模板
-    api.render('./template', { v2 });
-
-    // 引入样式文件
-    api.injectImports(api.entryFile, `import '@/assets/styles/public.less'`);
-
-    // 引入 plugins
+    api.render('./template-base');
     if (v2) {
-        api.injectImports(api.entryFile, `import '@/plugins/axios'`);
-        api.injectImports(api.entryFile, `import '@/plugins/directives'`);
-        api.injectImports(api.entryFile, `import '@/plugins/filters'`);
+        api.render('./template', options);
     } else {
-        api.injectImports(api.entryFile, `import axios from '@/plugins/axios'`);
-        api.injectImports(api.entryFile, `import directives from '@/plugins/directives'`);
-        api.injectImports(api.entryFile, `import filters from '@/plugins/filters'`);
+        api.render('./template-v3', options);
     }
-
-    // 引入全局组件
-    if (v2) {
-        api.injectImports(api.entryFile, `import '@/components/index.js'`);
-    } else {
-        api.injectImports(api.entryFile, `import components from '@/components/index.js'`);
-    }
-
-    // 注入 plugins
-    !v2 && api.transformScript(api.entryFile, require('./injectUsePlugin'));
 
     // 添加依赖
     let dependencies = {
         'qs': '^6.7.0',
         'axios': '0.18.0'
     };
-    // 数据可视化大屏依赖
-    if (options.type === 2) {
-        dependencies = {
-            ...dependencies,
-            'echarts': '^5.0.0',
-            'animate.css': '^4.1.1'
+    // UI 框架
+    if (options.ui === 'element') {
+        if (v2) {
+            dependencies['element-ui'] = '^2.15.0';
+        } else {
+            dependencies['element-plus'] = '^1.0.1-beta.27';
         }
     }
     api.extendPackage({
@@ -52,5 +35,36 @@ module.exports = (api, options, rootOptions) => {
             'babel-plugin-transform-remove-console': '^6.9.4',
             'babel-plugin-transform-remove-debugger': '^6.9.4'
         }
-    })
+    });
+
+    if (v2) {
+        api.extendPackage({
+            dependencies: {
+                "vue-router": "^3.4.9",
+                "vuex": "^3.6.0"
+            }
+        });
+    } else {
+        api.extendPackage({
+            dependencies: {
+                "vue": "^3.0.0",
+                "vue-router": "^4.0.0-0",
+                "vuex": "^4.0.0-0"
+            },
+            devDependencies: {
+                'vue-template-compiler': null,
+                '@vue/compiler-sfc': '^3.0.0',
+            }
+        });
+    }
+
+    // 数据可视化大屏依赖
+    if (options.type === 'data-v') {
+        api.extendPackage({
+            dependencies: {
+                'echarts': '^5.0.0',
+                'animate.css': '^4.1.1'
+            }
+        });
+    }
 }

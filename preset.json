@@ -1,18 +1,17 @@
 {
-  "useConfigFiles": true,
-  "plugins": {
-    "@vue/cli-plugin-babel": {},
-    "@vue/cli-plugin-router": {
-      "historyMode": false
-    },
-    "@vue/cli-plugin-vuex": {},
-    "@vue/cli-plugin-eslint": {
-      "config": "standard",
-      "lintOn": [
-        "save"
-      ]
+    "useConfigFiles": true,
+    "useTaobaoRegistry": true,
+    "router": false,
+    "vuex": false,
+    "cssPreprocessor": "less",
+    "routerHistoryMode": false,
+    "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+            "config": "standard",
+            "lintOn": [
+                "save"
+            ]
+        }
     }
-  },
-  "vueVersion": "3",
-  "cssPreprocessor": "less"
 }

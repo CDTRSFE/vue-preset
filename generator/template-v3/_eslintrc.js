@@ -6,8 +6,8 @@ module.exports = {
         es6: true
     },
     extends: [
-        'plugin:vue/essential',
-        '@vue/standard',
+        'eslint:recommended',
+        'plugin:vue/vue3-recommended',
         'tpconfig'
     ],
     parserOptions: {

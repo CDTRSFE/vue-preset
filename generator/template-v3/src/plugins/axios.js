@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import axios from 'axios';
 import qs from 'qs';
 // import Loading from 'element-ui';
@@ -110,8 +109,7 @@ _axios.interceptors.response.use(
 
 Plugin.install = function(app) {
     window.axios = _axios;
-    app.axios = _axios;
-    Object.defineProperties(app.prototype, {
+    Object.defineProperties(app.config.globalProperties, {
         axios: {
             get() {
                 return _axios;
@@ -124,7 +122,5 @@ Plugin.install = function(app) {
         }
     });
 };
-
-Vue.use(Plugin);
 
 export default Plugin;
