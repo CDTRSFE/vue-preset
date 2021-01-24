@@ -1,19 +1,13 @@
 module.exports = (api, options, rootOptions) => {
     // const v2 = options.vueVersion === 'v2';
     const v2 = options.version === 'v2';
-
-    // 创建模板
-    api.render('./template-base');
-    if (v2) {
-        api.render('./template', options);
-    } else {
-        api.render('./template-v3', options);
-    }
+    options.ui = options.ui || 'none';
 
     // 添加依赖
     let dependencies = {
         'qs': '^6.7.0',
-        'axios': '0.18.0'
+        'axios': '0.18.0',
+        'tp-common.css': '^1.0.1'
     };
     // UI 框架
     if (options.ui === 'element') {
@@ -27,6 +21,7 @@ module.exports = (api, options, rootOptions) => {
         dependencies,
         devDependencies: {
             'eslint-config-tpconfig': '^0.1.0',
+            'eslint-plugin-vue': '^7.0.0-0',
             'style-resources-loader': '^1.3.2',
             'stylelint': '^13.7.2',
             'stylelint-config-standard': '^20.0.0',
@@ -66,5 +61,13 @@ module.exports = (api, options, rootOptions) => {
                 'animate.css': '^4.1.1'
             }
         });
+    }
+
+    // 创建模板
+    api.render('./template-base');
+    if (v2) {
+        api.render('./template', options);
+    } else {
+        api.render('./template-v3', options);
     }
 }

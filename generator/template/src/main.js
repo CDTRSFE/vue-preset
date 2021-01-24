@@ -5,7 +5,9 @@ import store from './store';
 import '@/plugins/axios';
 import filters from '@/plugins/filters';
 import directives from '@/plugins/directives';
-import components from '@/plugins/components';
+import components from '@/components';
+import 'tp-common.css';
+import '@/assets/styles/public.less';
 import 'element-ui/lib/theme-chalk/index.css';
 <%_ if (ui === 'element') { _%>
 import ElementUI from 'element-ui';
