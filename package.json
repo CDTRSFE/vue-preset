@@ -20,9 +20,6 @@
     },
     "homepage": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template#readme",
     "devDependencies": {
-        "stylelint": "^13.8.0",
-        "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
-        "stylelint-order": "^4.1.0",
         "stylelint-webpack-plugin": "^2.1.1",
         "webpack-bundle-analyzer": "^4.3.0",
         "webpack-chain": "^6.5.1"

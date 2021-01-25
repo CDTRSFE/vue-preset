@@ -34,8 +34,10 @@ module.exports = (api, options) => {
         devDependencies: {
             'eslint-config-tpconfig': '^0.1.0',
             'style-resources-loader': '^1.3.2',
-            'stylelint': '^13.7.2',
+            'stylelint': '^13.9.0',
             'stylelint-config-standard': '^20.0.0',
+            'stylelint-declaration-block-no-ignored-properties': '^2.3.0',
+            'stylelint-order': '^4.1.0',
             'stylelint-webpack-plugin': '^2.1.1',
             'webpack-bundle-analyzer': '^4.3.0',
             'babel-plugin-transform-remove-console': '^6.9.4',
