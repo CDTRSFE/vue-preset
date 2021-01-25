@@ -61,7 +61,7 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 ```html
 <!-- index.html -->
 <head>
-    <link rel="stylesheet" href="<%= BASE_URL %>iconfont/font.css" />
+    <link rel="stylesheet" href="<%= BASE_URL %>iconfont/iconfont.css" />
     <link rel="stylesheet" href="<%= BASE_URL %>font/font.css" />
 </head>
 ```
