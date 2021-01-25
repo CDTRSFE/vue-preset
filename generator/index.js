@@ -37,16 +37,16 @@ module.exports = (api, options, rootOptions) => {
     if (v2) {
         api.extendPackage({
             dependencies: {
-                "vue-router": "^3.4.9",
-                "vuex": "^3.6.0"
+                'vue-router': '^3.4.9',
+                'vuex': '^3.6.0'
             }
         });
     } else {
         api.extendPackage({
             dependencies: {
-                "vue": "^3.0.0",
-                "vue-router": "^4.0.0-0",
-                "vuex": "^4.0.0-0"
+                'vue': '^3.0.0',
+                'vue-router': '^4.0.0-0',
+                'vuex': '^4.0.0-0'
             },
             devDependencies: {
                 'vue-template-compiler': null,
@@ -64,6 +64,22 @@ module.exports = (api, options, rootOptions) => {
             }
         });
     }
+
+    // git hook
+    api.extendPackage({
+        husky: {
+            hooks: {
+                'pre-commit': 'lint-staged'
+            }
+        },
+        'lint-staged': {
+            '*.{js,vue}': 'npm run lint'
+        },
+        devDependencies: {
+            'husky': '^4.3.8',
+            'lint-staged': '^10.5.3',
+        }
+    });
 
     // 创建模板
     api.render('./template-base');
