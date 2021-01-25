@@ -1,6 +1,6 @@
 {
-  "name": "vue-cli-plugin-tp-template",
-  "version": "0.2.3",
+  "name": "vue-preset",
+  "version": "0.3.0",
   "description": "vue template",
   "main": "index.js",
   "scripts": {},

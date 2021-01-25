@@ -9,7 +9,7 @@ module.exports = [
                 value: 'v2'
             },
             {
-                name: '3.x (Preview)',
+                name: '3.x',
                 value: 'v3'
             }
         ],
@@ -36,12 +36,12 @@ module.exports = [
         message: "Choice a UI Framework",
         choices: [
             {
-                name: 'Element UI',
-                value: 'element'
-            },
-            {
                 name: 'none',
                 value: 'none'
+            },
+            {
+                name: 'Element UI',
+                value: 'element'
             }
         ],
         when: (answers) => answers.type === "default",
