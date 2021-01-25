@@ -86,7 +86,10 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 所有自定义规则都放在了[stylelint-config-tpconfig](https://github.com/CDTRSFE/stylelint-config-tpconfig) 里单独维护，创建项目后自动生成的 `stylelint.config.js` 文件里不再有 `rules` 。在编辑器中，建议安装 `stylelint `插件。
 
-## 版本日志
+## 版本控制
+
+- [ ] 自动生成版本日志
+- [x] pre-commit 代码校验
 
 ## babel
 
@@ -94,4 +97,10 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## 相关链接
 
-Vue 项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
++ Vue 项目规范文档: [https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220](https://wiki.trscd.com.cn/pages/viewpage.action?pageId=59900220)
+
++ ESLint 配置: [https://github.com/CDTRSFE/eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig)
+
++ stylelint 配置: [https://github.com/CDTRSFE/stylelint-config-tpconfig](https://github.com/CDTRSFE/stylelint-config-tpconfig)
+
++ 公共样式: [https://github.com/CDTRSFE/tp-common.css](https://github.com/CDTRSFE/tp-common.css)
