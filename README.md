@@ -1,6 +1,6 @@
 # vue-preset
 
-该工程是基于 Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件，所预设的插件和配置有：Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
+一个用于生成自定义模板的 Vue CLI 4.x preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件，所预设的插件和配置有：Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
 
 > 模板存放在 `/generator/template`，创建项目时自动生成，如果要调整模板需注意：空文件和文件夹会被忽略，模板要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
 
@@ -32,12 +32,44 @@ $ vue create --preset CDTRSFE/vue-preset <app-name>
 
 + UI 组件库选择
 
-还可以选择需要使用的 UI 组件库，会根据 Vue 版本自动安装对应的版本。数据可视化大屏项目不会出现此提示。
+还可以选择需要使用的 UI 组件库，数据可视化大屏项目不会出现此提示。
 
 ```shell
 ? Choice a UI Framework (Use arrow keys)
 ❯ none
   Element UI
+```
+
+创建完成后目录结构：
+
+```
+.
+├── public
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── styles
+│   │       ├── public.less       # 公共样式
+│   │       └── resources.less    # 全局变量等
+│   ├── components
+│   │   ├── common                # 全局公用组件
+│   │   ├── index.js
+│   │   └── normal                # 公用组件
+│   ├── main.js
+│   ├── plugins
+│   │   ├── axios.js              # Axios
+│   │   ├── directives.js         # 全局指令
+│   │   └── filters.js            # 全局过滤器
+│   ├── router
+│   └── store
+├── stylelint.config.js           # stylelint 配置
+├── README.md
+├── .eslintrc.js                  # ESLint 配置
+├── Version.ReadMe.md             # 版本日志
+├── babel.config.js
+├── package-lock.json
+├── package.json
+└── vue.config.js
 ```
 
 ## 样式相关
