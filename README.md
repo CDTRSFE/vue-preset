@@ -1,8 +1,8 @@
 # vue-preset
 
-该工程是基于 Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件，所预设的插件和配置有：Vue3、Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
+该工程是基于 Vue CLI 4.x 用于生成自定义模板的 preset，包含了创建项目时所需的选项和插件，以及自定义的模板文件，所预设的插件和配置有：Less、Axios、Router、Vuex、StyleLint、Eslint、Babel。
 
-模板存放在 `/generator/template`，创建项目时自动生成，如果要调整模板需注意：空文件和文件夹会被忽略，模板要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
+> 模板存放在 `/generator/template`，创建项目时自动生成，如果要调整模板需注意：空文件和文件夹会被忽略，模板要考虑[文件名的边界情况](https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5)，以点开头的模板需要使用下划线取代那个点，以下划线开头的文件需要使用两个下划线来取代单个下划线。
 
 ## 使用
 
@@ -10,7 +10,9 @@
 $ vue create --preset CDTRSFE/vue-preset <app-name>
 ```
 
-创建过程中会有选择提示，可以选择 Vue 版本，默认是 2.x。如果需要使用 Vue3，先[升级Vue CLI](https://cli.vuejs.org/guide/installation.html#upgrading) 至 v4.5 及以上版本。
++ Vue 版本选择
+
+创建过程中会有选择提示，可以选择 Vue 版本，默认是 2.x。如果需要使用 Vue3，先[升级 Vue CLI](https://cli.vuejs.org/guide/installation.html#upgrading) 至 v4.5 及以上版本。
 
 ```shell
 ? Choose a version of Vue.js (Use arrow keys)
@@ -18,7 +20,9 @@ $ vue create --preset CDTRSFE/vue-preset <app-name>
   3.x
 ```
 
-为了区分大屏项目，增加了选择项目类型的提示，一般直接选择 `default` 即可，如果选择 `data visualization project` (数据可视化大屏项目)，会额外安装 `echarts` `animate.css`。
++ 项目类型选择
+
+选择 `data visualization project` 可创建数据可视化大屏项目，会在 `default project` 基础之上额外安装 `echarts` `animate.css`。
 
 ```shell
 ? What type of project do you want to create? (Use arrow keys)
@@ -26,7 +30,9 @@ $ vue create --preset CDTRSFE/vue-preset <app-name>
   data visualization project
 ```
 
-还可以选择使用的 UI 组件库，会自动安装对应的版本。
++ UI 组件库选择
+
+还可以选择需要使用的 UI 组件库，会根据 Vue 版本自动安装对应的版本。数据可视化大屏项目不会出现此提示。
 
 ```shell
 ? Choice a UI Framework (Use arrow keys)
@@ -46,7 +52,7 @@ $ vue create --preset CDTRSFE/vue-preset <app-name>
 
 ## 字体文件
 
-iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/index.html` 引入对应的 CSS / js 文件。建议在 `public/iconfont/info.md` 文件中记录图标库的地址和登录账号，方便后续维护。
+iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/index.html` 引入对应的 CSS / js 文件。建议在 `public/iconfont/info.md` 文件中记录图标库的地址和管理员账号，方便后续维护。
 
 ```
 .
@@ -88,7 +94,7 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## 版本日志
 
-## babel
+## Babel
 
 使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `debugger` 和 `console`。
 
