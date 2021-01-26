@@ -65,13 +65,17 @@ module.exports = (api, options, rootOptions) => {
 
     // git hook
     api.extendPackage({
+        scripts: {
+            stylelint: 'stylelint \'src/**/*.{vue,html,css,less,scss,sass}\' --fix'
+        },
         husky: {
             hooks: {
                 'pre-commit': 'lint-staged'
             }
         },
         'lint-staged': {
-            '*.{js,vue}': 'npm run lint'
+            '*.{js,vue}': 'npm run lint',
+            '*.{vue,html,css,less,scss,sass}': 'npm run stylelint'
         },
         devDependencies: {
             'husky': '^4.3.8',
