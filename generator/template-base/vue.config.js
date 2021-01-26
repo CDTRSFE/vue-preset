@@ -1,6 +1,6 @@
 const path = require('path');
 // const webpack = require('webpack');
-// const StyleLintPlugin = require('stylelint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -29,14 +29,13 @@ module.exports = {
                     patterns: [path.resolve(__dirname, './src/assets/styles/resources.less')]
                 });
         });
-
-        // config
-        //   .plugin('style-lint')
-        //   .use(StyleLintPlugin, [
-        //     {
-        //       files: ['src/**/*.{vue,html,css,less,scss,sass}']
-        //     }
-        //   ]);
+        config
+            .plugin('style-lint')
+            .use(StyleLintPlugin, [
+                {
+                    files: ['src/**/*.{vue,html,css,less,scss,sass}']
+                }
+            ]);
         if (process.nev === 'production') {
             config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin);
         }
