@@ -118,7 +118,16 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 ## ESLint
 
-所有自定义规则都放在了 [eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig) 里单独维护，创建项目后自动生成的 `.eslintrc.js` 文件里不再有 `rules`。在编辑器中，建议安装 Eslint 插件。
+所有自定义规则都放在了 [eslint-config-tpconfig](https://github.com/CDTRSFE/eslint-config-tpconfig) 里单独维护，创建项目后自动生成的 `.eslintrc.js` 文件里不再有 `rules`。在编辑器中，建议安装 [Eslint 插件](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)，并开启保存时自动修复。
+
+```json
+// vscode settings.json
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+}
+```
 
 ## stylelint
 
