@@ -29,12 +29,10 @@ module.exports = {
                     patterns: [path.resolve(__dirname, './src/assets/styles/resources.less')]
                 });
         });
-
         config
             .plugin('style-lint')
             .use(StyleLintPlugin, [
                 {
-                    fix: true,
                     files: ['src/**/*.{vue,html,css,less,scss,sass}']
                 }
             ]);
