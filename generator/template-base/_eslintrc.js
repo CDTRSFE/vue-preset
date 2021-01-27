@@ -6,7 +6,12 @@ module.exports = {
         es6: true
     },
     extends: [
-        'plugin:vue/essential',
+        'eslint:recommended',
+        <%_ if (version === 'v2') { _%>
+        'plugin:vue/recommended',
+        <%_ } else { _%>
+        'plugin:vue/vue3-recommended',
+        <%_ } _%>
         '@vue/standard',
         'tpconfig'
     ],

@@ -20,7 +20,7 @@ module.exports = (api, options, rootOptions) => {
     api.extendPackage({
         dependencies,
         devDependencies: {
-            'eslint-config-tpconfig': '^0.1.0',
+            'eslint-config-tpconfig': '^0.x',
             'eslint-plugin-vue': '^7.0.0-0',
             'style-resources-loader': '^1.3.2',
             'stylelint': '^13.9.0',
@@ -84,7 +84,7 @@ module.exports = (api, options, rootOptions) => {
     });
 
     // 创建模板
-    api.render('./template-base');
+    api.render('./template-base', options);
     if (v2) {
         api.render('./template', options);
     } else {
