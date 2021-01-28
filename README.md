@@ -133,16 +133,13 @@ iconfont 和其他字体文件都放在 `public` 文件夹下，在 `public/inde
 
 所有自定义规则都放在了[stylelint-config-tpconfig](https://github.com/CDTRSFE/stylelint-config-tpconfig) 里单独维护，创建项目后自动生成的 `stylelint.config.js` 文件里不再有 `rules` 。在编辑器中，建议安装 `stylelint `插件。
 
-##  commitlint
-
-管理项目中 `git commit` 信息提交的规范。为了方便注释信息的提交，需全局安装 [commitizen](https://github.com/commitizen/cz-cli)。
-
 ## 版本控制
 
 - [ ] 自动生成版本日志
 - [x] pre-commit 代码校验
-- [x] commit信息校验
+- [x] commit message 格式校验
 
+> 为了方便生成版本日志，提交代码时输入的 message 需要按照一定的[格式](https://www.conventionalcommits.org/en/v1.0.0/)，如 `feat(blog): add comment section`，可以使用 [`git cz`](https://github.com/commitizen/cz-cli) 代替 `git commit` 生成符合规范的 message。
 ## Babel
 
 使用了 [transform-remove-debugger](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-debugger) 和 [transform-remove-console](https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-remove-console)，生产环境代码删除 `debugger` 和 `console`。
