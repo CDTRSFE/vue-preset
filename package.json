@@ -17,5 +17,17 @@
         "url": "https://github.com/CDTRSFE/vue-preset/issues"
     },
     "homepage": "https://github.com/CDTRSFE/vue-preset#readme",
-    "devDependencies": {}
+    "devDependencies": {
+        "@trscd/stylelint-config-tpconfig": "0.0.3",
+        "@vue/eslint-config-standard": "^5.1.2",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint": "^6.8.0",
+        "babel-eslint": "^10.1.0",
+        "eslint-config-tpconfig": "^0.x",
+        "eslint-plugin-vue": "^7.5.0",
+        "stylelint": "^13.9.0"
+    }
 }

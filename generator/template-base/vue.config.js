@@ -10,10 +10,10 @@ module.exports = {
                 target: 'https://www.example.com',
                 changeOrigin: true,
                 pathRewrite: {
-                    '/api': ''
-                }
-            }
-        }
+                    '/api': '',
+                },
+            },
+        },
     },
     publicPath: '',
     chainWebpack: config => {
@@ -26,18 +26,18 @@ module.exports = {
                 .use('style-resource')
                 .loader('style-resources-loader')
                 .options({
-                    patterns: [path.resolve(__dirname, './src/assets/styles/resources.less')]
+                    patterns: [path.resolve(__dirname, './src/assets/styles/resources.less')],
                 });
         });
         config
             .plugin('style-lint')
             .use(StyleLintPlugin, [
                 {
-                    files: ['src/**/*.{vue,html,css,less,scss,sass}']
-                }
+                    files: ['src/**/*.{vue,html,css,less,scss,sass}'],
+                },
             ]);
         if (process.nev === 'production') {
             config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin);
         }
-    }
+    },
 };

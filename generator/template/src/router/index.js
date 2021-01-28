@@ -8,10 +8,9 @@ const router = new VueRouter({
         {
             path: '/Hello',
             name: 'Hello',
-            component: () => import('@/components/normal/Hello.vue')
-        }
-    ]
+            component: () => import('@/components/normal/Hello.vue'),
+        },
+    ],
 });
 
 export default router;
-

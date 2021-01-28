@@ -7,7 +7,7 @@ export default {
     name: 'HelloCom',
     data() {
         return {};
-    }
+    },
 };
 </script>
 

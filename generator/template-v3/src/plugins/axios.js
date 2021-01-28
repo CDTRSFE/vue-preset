@@ -35,7 +35,7 @@ const _axios = axios.create(config);
 // };
 
 _axios.interceptors.request.use(
-    function (config) {
+    function(config) {
         // Do something before request is sent
         if (config.method === 'post') {
             config.data = qs.stringify(config.data); // post请求格式化数据
@@ -43,20 +43,20 @@ _axios.interceptors.request.use(
         // loading.open();
         return config;
     },
-    function (error) {
+    function(error) {
         // Do something with request error
         return Promise.reject(error);
-    }
+    },
 );
 
 // Add a response interceptor
 _axios.interceptors.response.use(
-    function (response) {
+    function(response) {
         // Do something with response data
         // loading.close();
         return response.data;
     },
-    function (error) {
+    function(error) {
         // loading.close();
         if (error.response) {
             switch (error.response.status) {
@@ -104,7 +104,7 @@ _axios.interceptors.response.use(
         }
         // Do something with response error
         return Promise.reject(error);
-    }
+    },
 );
 
 Plugin.install = function(app) {
@@ -113,13 +113,13 @@ Plugin.install = function(app) {
         axios: {
             get() {
                 return _axios;
-            }
+            },
         },
         $axios: {
             get() {
                 return _axios;
-            }
-        }
+            },
+        },
     });
 };
 

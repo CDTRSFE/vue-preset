@@ -7,7 +7,7 @@ export default {
     name: 'Hello',
     data() {
         return {};
-    }
+    },
 };
 </script>
 

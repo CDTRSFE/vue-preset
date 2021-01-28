@@ -10,17 +10,17 @@ files.keys().forEach(key => {
     modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default;
 });
 
-const store = new Vuex.Store ({
+const store = new Vuex.Store({
     state: {},
     mutations: {},
     actions: {},
-    modules
+    modules,
 });
 
 if (module.hot) {
     module.hot.accept(files.id, () => {
         store.hotUpdate({
-            modules
+            modules,
         });
     });
 }
