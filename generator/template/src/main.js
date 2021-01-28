@@ -8,8 +8,8 @@ import directives from '@/plugins/directives';
 import components from '@/components';
 import 'tp-common.css';
 import '@/assets/styles/public.less';
-import 'element-ui/lib/theme-chalk/index.css';
 <%_ if (ui === 'element') { _%>
+import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
 Vue.use(ElementUI, {
     size: 'small'
