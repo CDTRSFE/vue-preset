@@ -7,7 +7,8 @@
 
 <style lang="less">
 .hello {
-    margin-top: 30px;
+    margin-top: 100px;
+    font-size: 30px;
     text-align: center;
 }
 </style>
