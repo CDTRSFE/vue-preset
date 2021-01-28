@@ -83,6 +83,20 @@ module.exports = (api, options, rootOptions) => {
         }
     });
 
+    // 删除不必要的文件
+    api.render(files => {
+        Object.keys(files).forEach(path => {
+            const templatePath = [
+                'src/assets/logo.png',
+                'src/App.vue',
+                'src/components/HelloWorld.vue'
+            ];
+            if (templatePath.includes(path)) {
+                delete files[path];
+            }
+        });
+    });
+
     // 创建模板
     api.render('./template-base', options);
     if (v2) {
