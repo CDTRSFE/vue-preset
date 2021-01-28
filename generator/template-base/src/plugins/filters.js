@@ -7,5 +7,5 @@ export default {
         Object.keys(filters).forEach(key => {
             app.filter(key, filters[key]);
         });
-    }
+    },
 };

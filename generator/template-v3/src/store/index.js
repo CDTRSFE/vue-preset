@@ -7,17 +7,17 @@ files.keys().forEach(key => {
     modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default;
 });
 
-const store = createStore ({
+const store = createStore({
     state: {},
     mutations: {},
     actions: {},
-    modules
+    modules,
 });
 
 if (module.hot) {
     module.hot.accept(files.id, () => {
         store.hotUpdate({
-            modules
+            modules,
         });
     });
 }
