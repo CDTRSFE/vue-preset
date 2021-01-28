@@ -6,7 +6,7 @@
     "scripts": {},
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/iamzhaoqing/vue-cli-plugin-tp-template.git"
+        "url": "git+https://github.com/CDTRSFE/vue-preset.git"
     },
     "keywords": [
         "vue"
@@ -14,8 +14,8 @@
     "author": "zhaoqing",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template/issues"
+        "url": "https://github.com/CDTRSFE/vue-preset/issues"
     },
-    "homepage": "https://github.com/iamzhaoqing/vue-cli-plugin-tp-template#readme",
+    "homepage": "https://github.com/CDTRSFE/vue-preset#readme",
     "devDependencies": {}
 }
