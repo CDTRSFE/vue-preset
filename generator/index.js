@@ -63,7 +63,7 @@ module.exports = (api, options, rootOptions) => {
         });
     }
 
-    // git hook
+    // git hook and commitlint
     api.extendPackage({
         scripts: {
             stylelint: 'stylelint \'src/**/*.{vue,html,css,less,scss,sass}\' --fix',
@@ -80,9 +80,12 @@ module.exports = (api, options, rootOptions) => {
         config: {
             commitizen: {
                 path: './node_modules/cz-conventional-changelog',
+                'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
             },
         },
         devDependencies: {
+            '@commitlint/cli': '^11.0.0',
+            '@commitlint/config-conventional': '^11.0.0',
             husky: '^4.3.8',
             'lint-staged': '^10.5.3',
         },
