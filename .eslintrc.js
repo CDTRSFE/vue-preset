@@ -19,7 +19,4 @@ module.exports = {
         _: 'readonly',
         axios: 'readonly',
     },
-    rules: {
-        'vue/script-indent': ['error', 4, { baseIndent: 0, switchCase: 1 }],
-    }
 };

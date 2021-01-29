@@ -15,6 +15,7 @@ module.exports = {
         '@vue/standard',
         'tpconfig'
     ],
+    parser: 'vue-eslint-parser',
     parserOptions: {
         parser: 'babel-eslint',
         sourceType: 'module'
