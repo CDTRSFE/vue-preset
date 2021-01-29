@@ -3,7 +3,9 @@
     "version": "0.3.0",
     "description": "vue template",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "lint": "eslint . --ext .js,.vue --fix"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/CDTRSFE/vue-preset.git"

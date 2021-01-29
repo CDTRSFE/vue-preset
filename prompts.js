@@ -6,14 +6,14 @@ module.exports = [
         choices: [
             {
                 name: '2.x',
-                value: 'v2'
+                value: 'v2',
             },
             {
                 name: '3.x',
-                value: 'v3'
-            }
+                value: 'v3',
+            },
         ],
-        default: 'v2'
+        default: 'v2',
     },
     {
         type: 'list',
@@ -22,29 +22,29 @@ module.exports = [
         choices: [
             {
                 name: 'default project',
-                value: 'default'
+                value: 'default',
             },
             {
                 name: 'data visualization project',
-                value: 'data-v'
-            }
-        ]
+                value: 'data-v',
+            },
+        ],
     },
     {
-        name: "ui",
-        type: "list",
-        message: "Choice a UI Framework",
+        name: 'ui',
+        type: 'list',
+        message: 'Choice a UI Framework',
         choices: [
             {
                 name: 'none',
-                value: 'none'
+                value: 'none',
             },
             {
                 name: 'Element UI',
-                value: 'element'
-            }
+                value: 'element',
+            },
         ],
-        when: (answers) => answers.type === "default",
-        default: "none"
-    }
-]
+        when: (answers) => answers.type === 'default',
+        default: 'none',
+    },
+];

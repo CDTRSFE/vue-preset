@@ -97,7 +97,7 @@ module.exports = (api, options, rootOptions) => {
             const templatePath = [
                 'src/assets/logo.png',
                 'src/App.vue',
-                'src/components/HelloWorld.vue'
+                'src/components/HelloWorld.vue',
             ];
             if (templatePath.includes(path)) {
                 delete files[path];
@@ -111,7 +111,7 @@ module.exports = (api, options, rootOptions) => {
             const templatePath = [
                 'src/assets/logo.png',
                 'src/App.vue',
-                'src/components/HelloWorld.vue'
+                'src/components/HelloWorld.vue',
             ];
             if (templatePath.includes(path)) {
                 delete files[path];

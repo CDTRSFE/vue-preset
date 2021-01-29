@@ -11,12 +11,11 @@ module.exports = {
         '@vue/standard',
         'tpconfig',
     ],
+    plugins: [
+        // 'ejs',
+    ],
     parserOptions: {
         parser: 'babel-eslint',
         sourceType: 'module',
-    },
-    globals: {
-        _: 'readonly',
-        axios: 'readonly',
-    },
+    }
 };
