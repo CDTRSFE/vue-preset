@@ -71,6 +71,7 @@ module.exports = (api, options, rootOptions) => {
         husky: {
             hooks: {
                 'pre-commit': 'lint-staged',
+                'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
             },
         },
         'lint-staged': {
@@ -80,12 +81,12 @@ module.exports = (api, options, rootOptions) => {
         config: {
             commitizen: {
                 path: './node_modules/cz-conventional-changelog',
-                'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
             },
         },
         devDependencies: {
             '@commitlint/cli': '^11.0.0',
             '@commitlint/config-conventional': '^11.0.0',
+            'cz-conventional-changelog': '^3.3.0',
             husky: '^4.3.8',
             'lint-staged': '^10.5.3',
         },
