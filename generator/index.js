@@ -6,7 +6,7 @@ module.exports = (api, options, rootOptions) => {
     // 添加依赖
     const dependencies = {
         qs: '^6.7.0',
-        axios: '0.18.0',
+        axios: '^0.21.0',
         'tp-common.css': '^1.0.1',
     };
     // UI 框架
