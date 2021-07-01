@@ -6,9 +6,9 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     routes: [
         {
-            path: '/Hello',
+            path: '/',
             name: 'Hello',
-            component: () => import('@/components/normal/Hello.vue'),
+            component: () => import('@/views/Hello.vue'),
         },
     ],
 });
