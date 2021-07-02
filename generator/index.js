@@ -59,6 +59,8 @@ module.exports = (api, options, rootOptions) => {
             dependencies: {
                 echarts: '^5.0.0',
                 'animate.css': '^4.1.1',
+                lodash: '^4.17.21',
+                'resize-observer-polyfill': '^1.5.1',
             },
         });
     }
@@ -92,20 +94,6 @@ module.exports = (api, options, rootOptions) => {
         },
     });
 
-    // 删除不必要的文件
-    api.render(files => {
-        Object.keys(files).forEach(path => {
-            const templatePath = [
-                'src/assets/logo.png',
-                'src/App.vue',
-                'src/components/HelloWorld.vue',
-            ];
-            if (templatePath.includes(path)) {
-                delete files[path];
-            }
-        });
-    });
-
     // 创建模板
     api.render('./template-base', options);
     if (v2) {
@@ -113,4 +101,20 @@ module.exports = (api, options, rootOptions) => {
     } else {
         api.render('./template-v3', options);
     }
+
+    // 删除不必要的文件
+    const deletePath = [
+        'src/assets/logo.png',
+        'src/components/HelloWorld.vue',
+    ];
+    if (options.type !== 'data-v') {
+        deletePath.push('src/components/normal/ScaleView.vue');
+    }
+    api.render(files => {
+        Object.keys(files).forEach(path => {
+            if (deletePath.find(p => path.indexOf(p) === 0)) {
+                delete files[path];
+            }
+        });
+    });
 };
