@@ -10,7 +10,7 @@ import 'tp-common.css';
 import '@/assets/styles/public.less';
 <%_ if (ui === 'element') { _%>
 import ElementPlus from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
+import '@/assets/styles/element-variables.scss';
 <%_ } _%>
 
 createApp(App)

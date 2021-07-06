@@ -9,7 +9,7 @@ import components from '@/components';
 import 'tp-common.css';
 import '@/assets/styles/public.less';
 <%_ if (ui === 'element') { _%>
-import 'element-ui/lib/theme-chalk/index.css';
+import '@/assets/styles/element-variables.scss';
 import ElementUI from 'element-ui';
 Vue.use(ElementUI, {
     size: 'small'

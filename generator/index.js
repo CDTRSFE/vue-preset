@@ -7,7 +7,7 @@ module.exports = (api, options, rootOptions) => {
     const dependencies = {
         qs: '^6.7.0',
         axios: '^0.21.0',
-        'tp-common.css': '^1.0.1',
+        'tp-common.css': '^1.0.2',
     };
     // UI 框架
     if (options.ui === 'element') {
@@ -94,6 +94,17 @@ module.exports = (api, options, rootOptions) => {
         },
     });
 
+    // UI 框架
+    if (options.ui === 'element') {
+        // element 替换主题色需要使用 sass
+        api.extendPackage({
+            devDependencies: {
+                'sass-loader': '^7.1.0',
+                'node-sass': '^4.14.1',
+            },
+        });
+    }
+
     // 创建模板
     api.render('./template-base', options);
     if (v2) {
@@ -106,9 +117,13 @@ module.exports = (api, options, rootOptions) => {
     const deletePath = [
         'src/assets/logo.png',
         'src/components/HelloWorld.vue',
+        '.editorconfig',
     ];
     if (options.type !== 'data-v') {
         deletePath.push('src/components/normal/ScaleView.vue');
+    }
+    if (options.ui !== 'element') {
+        deletePath.push('src/assets/styles/element-variables.scss');
     }
     api.render(files => {
         Object.keys(files).forEach(path => {
@@ -117,4 +132,14 @@ module.exports = (api, options, rootOptions) => {
             }
         });
     });
+
+    // 安装的 node-sass 包内缺少 vendor 文件夹
+    // 需要执行 npm rebuild node-sass 生成
+    if (options.ui === 'element') {
+        api.onCreateComplete(() => {
+            const exec = require('child_process').execSync;
+            const path = api.resolve();
+            exec('npm rebuild node-sass', { stdio: 'inherit', cwd: path });
+        });
+    }
 };
