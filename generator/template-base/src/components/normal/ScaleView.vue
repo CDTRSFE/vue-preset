@@ -32,9 +32,15 @@ export default {
             default: defaultSize,
             validator: sizeValidator,
         },
+        // 是否缩放 <body>
         scaleBody: {
             type: Boolean,
             default: false,
+        },
+        // 宽高等比缩放
+        proportional: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -54,11 +60,7 @@ export default {
         this.init();
         this.domResize = resizeEvent.call(this, this.parentEle, this.setSize);
     },
-    <%_ if (version === 'v2') { _%>
     beforeDestroy() {
-    <%_ } else { _%>
-    beforeUnmount() {
-    <%_ } _%>
         this.domResize.removeListeners();
     },
     methods: {
@@ -74,32 +76,30 @@ export default {
             const wrapW = this.parentEle.clientWidth;
             const wrapH = this.parentEle.clientHeight;
             const size = resolveSize(this.baseSize);
-            let ratio = 1;
-            if (size.w / size.h > wrapW / wrapH) {
-                ratio = wrapW / size.w;
-            } else {
-                ratio = wrapH / size.h;
+            const ratio = [wrapW / size.w, wrapH / size.h];
+            // 等比缩放 宽高缩放比例得一致
+            if (this.proportional) {
+                if (size.w / size.h > wrapW / wrapH) {
+                    ratio[1] = ratio[0];
+                } else {
+                    ratio[0] = ratio[1];
+                }
             }
             const style = {
                 width: size.w + 'px',
                 height: size.h + 'px',
             };
+            const scale = `scale(${ratio.join(',')})`;
             if (this.scaleBody) {
                 this.containerStyle = style;
                 this.htmlEle.classList.add('scale-view-flex-center');
-                const bodyStyle = {
-                    ...style,
-                    flex: '0 0 auto',
-                };
+                const bodyStyle = { ...style, flex: '0 0 auto' };
                 for (const k in bodyStyle) {
                     document.body.style[k] = bodyStyle[k];
                 }
-                document.body.style.transform = `scale(${ratio})`;
+                document.body.style.transform = scale;
             } else {
-                this.containerStyle = {
-                    ...style,
-                    transform: `scale(${ratio})`,
-                };
+                this.containerStyle = { ...style, transform: scale };
             }
             this.show = true;
         },
