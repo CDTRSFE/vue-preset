@@ -37,7 +37,7 @@ const _axios = axios.create(config);
 _axios.interceptors.request.use(
     function(config) {
         // Do something before request is sent
-        if (config.method === 'post') {
+        if (config.method === 'post' && toString.call(config.data) === '[object Object]') {
             config.data = qs.stringify(config.data); // post请求格式化数据
         }
         // loading.open();

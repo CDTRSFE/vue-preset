@@ -1,6 +1,5 @@
 {
     "useConfigFiles": true,
-    "useTaobaoRegistry": true,
     "router": false,
     "vuex": false,
     "cssPreprocessor": "less",

@@ -7,7 +7,7 @@ module.exports = (api, options, rootOptions) => {
     const dependencies = {
         qs: '^6.7.0',
         axios: '^0.21.0',
-        'tp-common.css': '^1.0.1',
+        'tp-common.css': '^1.0.2',
     };
     // UI 框架
     if (options.ui === 'element') {
@@ -59,6 +59,8 @@ module.exports = (api, options, rootOptions) => {
             dependencies: {
                 echarts: '^5.0.0',
                 'animate.css': '^4.1.1',
+                lodash: '^4.17.21',
+                'resize-observer-polyfill': '^1.5.1',
             },
         });
     }
@@ -92,19 +94,16 @@ module.exports = (api, options, rootOptions) => {
         },
     });
 
-    // 删除不必要的文件
-    api.render(files => {
-        Object.keys(files).forEach(path => {
-            const templatePath = [
-                'src/assets/logo.png',
-                'src/App.vue',
-                'src/components/HelloWorld.vue',
-            ];
-            if (templatePath.includes(path)) {
-                delete files[path];
-            }
+    // UI 框架
+    if (options.ui === 'element') {
+        // element 替换主题色需要使用 sass
+        api.extendPackage({
+            devDependencies: {
+                'sass-loader': '^7.1.0',
+                'node-sass': '^4.14.1',
+            },
         });
-    });
+    }
 
     // 创建模板
     api.render('./template-base', options);
@@ -112,5 +111,35 @@ module.exports = (api, options, rootOptions) => {
         api.render('./template', options);
     } else {
         api.render('./template-v3', options);
+    }
+
+    // 删除不必要的文件
+    const deletePath = [
+        'src/assets/logo.png',
+        'src/components/HelloWorld.vue',
+        '.editorconfig',
+    ];
+    if (options.type !== 'data-v') {
+        deletePath.push('src/components/normal/ScaleView.vue');
+    }
+    if (options.ui !== 'element') {
+        deletePath.push('src/assets/styles/element-variables.scss');
+    }
+    api.render(files => {
+        Object.keys(files).forEach(path => {
+            if (deletePath.find(p => path.indexOf(p) === 0)) {
+                delete files[path];
+            }
+        });
+    });
+
+    // 安装的 node-sass 包内缺少 vendor 文件夹
+    // 需要执行 npm rebuild node-sass 生成
+    if (options.ui === 'element') {
+        api.onCreateComplete(() => {
+            const exec = require('child_process').execSync;
+            const path = api.resolve();
+            exec('npm rebuild node-sass', { stdio: 'inherit', cwd: path });
+        });
     }
 };

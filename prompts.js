@@ -33,7 +33,7 @@ module.exports = [
     {
         name: 'ui',
         type: 'list',
-        message: 'Choice a UI Framework',
+        message: 'Choose a UI Framework',
         choices: [
             {
                 name: 'none',

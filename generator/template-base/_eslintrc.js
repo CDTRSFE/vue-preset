@@ -23,5 +23,6 @@ module.exports = {
     globals: {
         _: 'readonly',
         axios: 'readonly'
-    }
+    },
+    ignorePatterns: ['/public/**/*.js'],
 };
