@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <%_ if (type === 'data-v') { _%>
-        <scale-view scale-body>
+        <scale-view scale-body :proportional="proportional">
             <router-view></router-view>
         </scale-view>
         <%_ } else { _%>
@@ -19,6 +19,11 @@ export default {
     <%_ if (type === 'data-v') { _%>
     components: {
         ScaleView,
+    },
+    data() {
+        return {
+            proportional: process.env.NODE_ENV === 'development',
+        };
     },
     <%_ } _%>
 };
