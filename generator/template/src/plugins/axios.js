@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import qs from 'qs';
-// import Loading from 'element-ui';
+// import { Loading } from 'element-ui';
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
