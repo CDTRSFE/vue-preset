@@ -1,7 +1,9 @@
+<%_ if(version === 'v2') { _%>
 import Vue from 'vue';
+<%_ } _%>
 import axios from 'axios';
 import qs from 'qs';
-// import { Loading } from 'element-ui';
+import loading from './loading';
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
@@ -15,37 +17,16 @@ const config = {
 };
 const _axios = axios.create(config);
 
-// loading 动画
-// const loading = {
-//     num: 0,
-//     open() {
-//         if (this.num === 0) {
-//             this.instance = Loading.service({
-//                 text: '玩命加载中...',
-//                 background: 'rgba(255, 255, 255, 0.6)'
-//             });
-//         }
-//         this.num++;
-//     },
-//     close() {
-//         this.num--;
-//         if (this.num === 0) {
-//             this.instance.close();
-//         }
-//     }
-// };
+loading(_axios);
 
 _axios.interceptors.request.use(
     function(config) {
-        // Do something before request is sent
         if (config.method === 'post' && toString.call(config.data) === '[object Object]') {
-            config.data = qs.stringify(config.data); // post请求格式化数据
+            config.data = qs.stringify(config.data);
         }
-        // loading.open();
         return config;
     },
     function(error) {
-        // Do something with request error
         return Promise.reject(error);
     },
 );
@@ -53,12 +34,9 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
     function(response) {
-        // Do something with response data
-        // loading.close();
         return response.data;
     },
     function(error) {
-        // loading.close();
         if (error.response) {
             switch (error.response.status) {
                 case 400:
@@ -103,7 +81,6 @@ _axios.interceptors.response.use(
         } else {
             error.message = '连接服务器失败';
         }
-        // Do something with response error
         return Promise.reject(error);
     },
 );
@@ -111,7 +88,11 @@ _axios.interceptors.response.use(
 Plugin.install = function(app) {
     window.axios = _axios;
     app.axios = _axios;
+    <%_ if(version === 'v2') { _%>
     Object.defineProperties(app.prototype, {
+    <%_ } else { _%>
+    Object.defineProperties(app.config.globalProperties, {
+    <%_ } _%>
         axios: {
             get() {
                 return _axios;
@@ -125,6 +106,8 @@ Plugin.install = function(app) {
     });
 };
 
+<%_ if(version === 'v2') { _%>
 Vue.use(Plugin);
+<%_ } _%>
 
 export default Plugin;
