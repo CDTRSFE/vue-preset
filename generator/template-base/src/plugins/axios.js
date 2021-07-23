@@ -8,7 +8,6 @@ import loading from './loading';
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const config = {
     // baseURL: process.env.baseURL || process.env.apiUrl || ""
@@ -21,7 +20,7 @@ loading(_axios);
 
 _axios.interceptors.request.use(
     function(config) {
-        if (config.method === 'post' && toString.call(config.data) === '[object Object]') {
+        if (config.method === 'post' && ((!config.headers['Content-Type'] && config.data.toString() === '[object object]') || config.headers['Content-Type'] === 'application/x-www-form-urlencoded')) {
             config.data = qs.stringify(config.data);
         }
         return config;
