@@ -20,7 +20,7 @@ loading(_axios);
 
 _axios.interceptors.request.use(
     function(config) {
-        if (config.method === 'post' && ((!config.headers['Content-Type'] && config.data.toString() === '[object object]') || config.headers['Content-Type'] === 'application/x-www-form-urlencoded')) {
+        if (config.method === 'post' && ((!config.headers['Content-Type'] && config.data.toString() === '[object Object]') || config.headers['Content-Type'] === 'application/x-www-form-urlencoded')) {
             config.data = qs.stringify(config.data);
         }
         return config;
