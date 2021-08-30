@@ -33,7 +33,7 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
     function(response) {
-        return response.data;
+        return response;
     },
     function(error) {
         if (error.response) {
