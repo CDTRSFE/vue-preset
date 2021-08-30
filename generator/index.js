@@ -28,7 +28,6 @@ module.exports = (api, options, rootOptions) => {
             'stylelint-webpack-plugin': '^2.1.1',
             'webpack-bundle-analyzer': '^4.3.0',
             'babel-plugin-transform-remove-console': '^6.9.4',
-            'babel-plugin-transform-remove-debugger': '^6.9.4',
         },
     });
 
