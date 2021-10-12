@@ -36,7 +36,7 @@ module.exports = {
                     files: ['src/**/*.{vue,html,css,less,scss,sass}'],
                 },
             ]);
-        if (process.nev === 'production') {
+        if (process.env.NODE_ENV === 'production') {
             config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin);
         }
     },
