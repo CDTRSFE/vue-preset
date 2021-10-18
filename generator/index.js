@@ -26,7 +26,6 @@ module.exports = (api, options, rootOptions) => {
             stylelint: '^13.9.0',
             '@trscd/stylelint-config-tpconfig': '^0.x',
             'stylelint-webpack-plugin': '^2.1.1',
-            'webpack-bundle-analyzer': '^4.3.0',
             'babel-plugin-transform-remove-console': '^6.9.4',
         },
     });

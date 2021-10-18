@@ -1,7 +1,6 @@
 const path = require('path');
 // const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     devServer: {
@@ -36,8 +35,5 @@ module.exports = {
                     files: ['src/**/*.{vue,html,css,less,scss,sass}'],
                 },
             ]);
-        if (process.env.NODE_ENV === 'production') {
-            config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin);
-        }
     },
 };
