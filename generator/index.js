@@ -97,8 +97,8 @@ module.exports = (api, options, rootOptions) => {
         // element 替换主题色需要使用 sass
         api.extendPackage({
             devDependencies: {
-                'sass-loader': '^7.1.0',
-                'node-sass': '^4.14.1',
+                sass: '~1.32.13',
+                'sass-loader': '^10.1.1',
             },
         });
     }
@@ -130,14 +130,4 @@ module.exports = (api, options, rootOptions) => {
             }
         });
     });
-
-    // 安装的 node-sass 包内缺少 vendor 文件夹
-    // 需要执行 npm rebuild node-sass 生成
-    if (options.ui === 'element') {
-        api.onCreateComplete(() => {
-            const exec = require('child_process').execSync;
-            const path = api.resolve();
-            exec('npm rebuild node-sass', { stdio: 'inherit', cwd: path });
-        });
-    }
 };
