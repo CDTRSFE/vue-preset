@@ -23,9 +23,10 @@ module.exports = (api, options, rootOptions) => {
             'eslint-config-tpconfig': '^0.x',
             'eslint-plugin-vue': '^7.0.0-0',
             'style-resources-loader': '^1.3.2',
-            stylelint: '^13.9.0',
-            '@trscd/stylelint-config-tpconfig': '^0.x',
-            'stylelint-webpack-plugin': '^2.1.1',
+            postcss: '^8.3.3',
+            stylelint: '^14.0.1',
+            '@trscd/stylelint-config-tpconfig': '^1.1.0',
+            'stylelint-webpack-plugin': '^2.3.1',
             'babel-plugin-transform-remove-console': '^6.9.4',
         },
     });
