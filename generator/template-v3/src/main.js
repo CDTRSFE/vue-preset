@@ -3,7 +3,6 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import axios from '@/plugins/axios';
-import filters from '@/plugins/filters';
 import directives from '@/plugins/directives';
 import components from '@/components';
 import 'tp-common.css';
@@ -17,7 +16,6 @@ createApp(App)
     .use(store)
     .use(router)
     .use(axios)
-    .use(filters)
     .use(directives)
     .use(components)
     <%_ if (ui === 'element') { _%>
