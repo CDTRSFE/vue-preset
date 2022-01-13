@@ -22,6 +22,7 @@ module.exports = (api, options, rootOptions) => {
         devDependencies: {
             'eslint-config-tpconfig': '^0.x',
             'eslint-plugin-vue': '^7.0.0-0',
+            '@babel/eslint-parser': '^7.16.5',
             'style-resources-loader': '^1.3.2',
             postcss: '^8.3.3',
             stylelint: '^14.0.1',
